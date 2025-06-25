@@ -7,9 +7,8 @@
     --link-hover-color: #a766cc;
 }
 
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif; /* Prefer Inter for modern look */
     margin: 0;
     line-height: 1.6;
     color: var(--text-color);
@@ -17,7 +16,6 @@ body {
     /* Prevent horizontal scrollbars on mobile from accidental overflow */
     overflow-x: hidden;
 }
-
 
 header {
     background-color: var(--primary-purple);
@@ -30,21 +28,18 @@ header {
     justify-content: center;
 }
 
-
 header figure {
     margin: 0;
 }
 
-
 header img {
-    max-width: 200px; /* Reduced image size */
+    max-width: 150px; /* Adjusted image size for better header balance */
     height: auto;
-    border-radius: 50%; /* Optional: Makes the image circular */
+    border-radius: 50%; /* Makes the image circular */
     border: 3px solid var(--light-purple);
-    display: block; /* Ensures image behaves well in flex container */
-    margin: 0 auto; /* Center image if it's smaller than its container */
+    display: block;
+    margin: 0 auto;
 }
-
 
 header h1 {
     margin: 0.5rem 0 1rem;
@@ -52,7 +47,6 @@ header h1 {
     color: var(--light-text-color);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-
 
 nav ul {
     list-style: none;
@@ -64,22 +58,19 @@ nav ul {
     flex-wrap: wrap; /* Allow items to wrap to next line if space is limited */
 }
 
-
 nav a {
     color: var(--light-text-color);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for color too */
     white-space: nowrap; /* Prevent links from breaking onto multiple lines */
 }
 
-
 nav a:hover {
     background-color: var(--dark-purple);
-    color: var(--light-purple);
+    color: var(--light-purple); /* Text color change on hover */
 }
-
 
 main {
     padding: 2rem;
@@ -92,7 +83,6 @@ main {
     box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
-
 footer {
     background-color: var(--primary-purple);
     color: var(--light-text-color);
@@ -101,20 +91,16 @@ footer {
     margin-top: 2rem;
 }
 
-
 footer p {
     margin: 0.5rem 0;
 }
-
 
 footer .highlight {
     font-weight: bold;
     color: var(--light-purple);
 }
 
-
 /* --- Media Queries for Responsiveness --- */
-
 
 /* For screens smaller than 768px (e.g., tablets in portrait) */
 @media (max-width: 768px) {
@@ -122,13 +108,11 @@ footer .highlight {
         font-size: 2rem; /* Slightly smaller heading */
     }
 
-
     nav ul {
         flex-direction: column; /* Stack navigation items vertically */
         gap: 5px; /* Reduce gap between stacked items */
         align-items: center; /* Center stacked nav items */
     }
-
 
     nav a {
         padding: 0.7rem 1.5rem; /* Adjust padding for stacked items */
@@ -137,7 +121,6 @@ footer .highlight {
         margin: 0 auto; /* Center the link itself */
     }
 
-
     main {
         padding: 1.5rem; /* Slightly less padding on smaller screens */
         margin: 0.5rem auto; /* Adjust margin */
@@ -145,24 +128,20 @@ footer .highlight {
     }
 }
 
-
 /* For screens smaller than 480px (e.g., mobile phones) */
 @media (max-width: 480px) {
     header img {
         max-width: 70px; /* Even smaller logo on very small screens */
     }
 
-
     header h1 {
         font-size: 1.5rem; /* Further reduce heading size */
     }
-
 
     nav a {
         padding: 0.5rem 1rem; /* Smaller padding for mobile links */
         font-size: 0.95rem; /* Slightly smaller font size for navigation */
     }
-
 
     main {
         padding: 1rem; /* More compact padding for mobile */
@@ -172,13 +151,11 @@ footer .highlight {
         box-shadow: none; /* Remove box-shadow for a cleaner look on mobile */
     }
 
-
     footer {
         padding: 0.8rem 1rem; /* Smaller footer padding with some side space */
         font-size: 0.85rem; /* Smaller font size for footer text */
     }
 }
-
 
 /* Very small screens (e.g., iPhone 5/SE, older Android) */
 @media (max-width: 320px) {
@@ -191,13 +168,11 @@ footer .highlight {
     }
 }
 
-
 .about-us-section {
     text-align: center;
     max-width: 960px;
     margin: 0 auto 3rem;
 }
-
 
 .studio-mission {
     font-size: 1.1rem;
@@ -207,17 +182,15 @@ footer .highlight {
     font-style: italic;
 }
 
-
 .team-showcase {
     margin-top: 3rem;
     margin-bottom: 2rem;
 }
 
-
 .team-grid {
     display: grid;
-    /* Default: Stack on very small screens, 2-3 on medium/large */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Default: Single column on very small screens, min width 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     justify-content: center; /* Center items in the grid */
     margin-top: 2rem;
@@ -226,72 +199,19 @@ footer .highlight {
     margin-right: auto;
 }
 
-
-/* Specific layout for larger screens (e.g., desktops) to get 2-3 distribution */
-@media (min-width: 769px) { /* Adjust this breakpoint if needed */
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr); /* Default to 2 columns for larger screens */
-        justify-items: center; /* Center items within their grid cells */
-    }
-    .team-grid .team-member:nth-child(3n+1) { /* Target specific items for adjustments if needed */
-        /* This isn't strictly necessary for a simple 2-3, but useful for complex layouts */
-    }
-    /* To force 3 on the bottom row when you have 5 members */
-    /* You could also wrap the last 3 in a div and make that a grid, but this is simpler for this specific case */
-    .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reset to fit for flexibility */
-    }
-
-
-    /* This media query ensures a 2-column layout for the first few and then handles the rest */
-    /* A more robust solution for exact 2 then 3 would involve more complex grid/flex on a wrapper */
-    /* For a simple 2-3 split, let's keep it flexible and ensure it generally looks good */
-}
-
-
-/* Let's refine the team-grid for specific desktop sizes to achieve the 2 then 3 layout */
-@media (min-width: 900px) { /* Adjust this breakpoint based on your desired layout width */
-    .team-grid {
-        display: flex; /* Use flexbox to control row wrapping more precisely */
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2rem;
-    }
-    .team-grid .team-member {
-        flex: 0 0 calc(50% - 1rem); /* Two items per row (50% width - half of gap) */
-        max-width: 350px; /* Limit max width of individual cards */
-    }
-    /* For the 3 items on the bottom, if you have 5 items total: */
-    .team-grid .team-member:nth-child(3),
-    .team-grid .team-member:nth-child(4),
-    .team-grid .team-member:nth-child(5) {
-        flex: 0 0 calc(33.333% - 1.333rem); /* Three items per row */
-    }
-    /* This setup is a bit complex and might need fine-tuning based on actual content and screen sizes. */
-    /* A simpler approach is to rely on auto-fit and let the grid manage, or wrap the last 3 in their own flex/grid container. */
-}
-
-
-/* A simpler, more robust approach for 2 then 3 without specific nth-child overrides */
-/* Reverting to a more standard grid with a slightly adjusted minmax for better flow */
-/* This will aim for 2 columns when there's space, and fall to 1 on small screens.
-   It won't *force* exactly 2 then 3, but it will scale well. */
+/* For screens 769px and wider: 2 columns */
 @media (min-width: 769px) {
     .team-grid {
-        grid-template-columns: repeat(2, minmax(250px, 1fr)); /* Always 2 columns on larger screens */
+        grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
     }
 }
-/* For very wide screens, you might want more columns, but for 5 members, 2-3 works well */
-@media (min-width: 1200px) { /* Example for wider screens */
-     .team-grid {
-        grid-template-columns: repeat(3, minmax(250px, 1fr)); /* Allow 3 columns for even larger screens */
+
+/* For screens 1024px and wider: 3 columns */
+@media (min-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns for larger screens */
     }
-    /* If you MUST have 2 on top and 3 on bottom, regardless of screen size, it's harder with pure CSS grid/flex
-       without wrapping the last 3 in their own container. The auto-fit approach is more flexible. */
 }
-
-
-
 
 /* Keeping your current styling for .team-member, .team-member a, img, h4, p */
 .team-member {
@@ -300,8 +220,11 @@ footer .highlight {
     padding: 1.5rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     text-align: center;
+    /* Ensures team members are equally sized in grid */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
 
 .team-member a {
     text-decoration: none;
@@ -310,11 +233,9 @@ footer .highlight {
     margin-bottom: 10px;
 }
 
-
 .team-member a:hover {
     color: var(--primary-purple);
 }
-
 
 .team-member img {
     width: 120px;
@@ -326,11 +247,9 @@ footer .highlight {
     transition: transform 0.3s ease;
 }
 
-
 .team-member img:hover {
     transform: scale(1.05);
 }
-
 
 .team-member h4 {
     margin-top: 0.5rem;
@@ -339,9 +258,9 @@ footer .highlight {
     font-size: 1.25rem;
 }
 
-
 .team-member p {
     font-size: 0.9rem;
     color: #666;
     margin: 0;
+    flex-grow: 1; /* Allows paragraph to take up available space, pushing content down */
 }
